@@ -5,7 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(App());
+  runApp(const App());
 }
 
 /// We are using a StatefulWidget such that we only create the [Future] once,
@@ -35,16 +35,16 @@ class _AppState extends State<App> {
           builder: (context, snapshot) {
             // Check for errors
             if (snapshot.hasError) {
-              return Center(child: Text('error'));
+              return const Center(child: Text('error'));
             }
 
             // Once complete, show your application
             if (snapshot.connectionState == ConnectionState.done) {
-              return Center(child: Text('App Initialized'));
+              return const Center(child: Text('App Initialized'));
             }
 
             // Otherwise, show something whilst waiting for initialization to complete
-            return Center(child: Text('loading'));
+            return const Center(child: Text('loading'));
           },
         ),
       ),
