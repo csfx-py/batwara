@@ -1,3 +1,5 @@
+import 'package:batwara/routes.dart';
+import 'package:batwara/theme.dart';
 import 'package:flutter/material.dart';
 
 // Import the firebase_core plugin
@@ -40,7 +42,10 @@ class _AppState extends State<App> {
 
             // Once complete, show your application
             if (snapshot.connectionState == ConnectionState.done) {
-              return const Center(child: Text('App Initialized'));
+              return MaterialApp(
+                routes: appRoutes,
+                theme: appTheme,
+              );
             }
 
             // Otherwise, show something whilst waiting for initialization to complete
