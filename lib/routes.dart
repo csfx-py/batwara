@@ -11,5 +11,5 @@ var appRoutes = {
   '/buddies': (context) => const BuddiesScreen(),
   '/feed': (context) => const FeedScreen(),
   '/profile': (context) => const ProfileScreen(),
-  '/auth': (context) => const AuthScreen(),
+  '/auth': (context) => AuthScreen(),
 };
