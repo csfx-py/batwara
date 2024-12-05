@@ -1,4 +1,5 @@
 import 'package:batwara/auth/auth.dart';
+import 'package:batwara/auth/verify_mail.dart';
 import 'package:batwara/crews/crews.dart';
 import 'package:batwara/services/auth.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,15 @@ class HomeScreen extends StatelessWidget {
         } else if (snapshot.hasError) {
           return const Text('Error');
         } else if (snapshot.hasData) {
-          return const CrewsScreen();
+          print('-----------------------------------------------------');
+          print(snapshot.data);
+          if (!AuthService().user!.emailVerified) {
+            return const VerifyEmail();
+          } else {
+            return const CrewsScreen();
+          }
         } else {
-          return const AuthScreen();
+          return AuthScreen();
         }
       },
     );
